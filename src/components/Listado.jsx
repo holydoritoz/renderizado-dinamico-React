@@ -11,6 +11,16 @@ function Listado() {
         updatedColaboradores.splice(index, 1);
         setColaboradores(updatedColaboradores);
     };
+
+    const btnStyle = {
+        background: "none",
+        border: "none",
+        padding: "0",
+        font: "inherit",
+        color: "red",
+        cursor: "pointer",
+        outline: "inherit"
+    }
     return (
         <Table striped bordered hover>
             <thead>
@@ -32,7 +42,11 @@ function Listado() {
                         <td>{colaborador.edad}</td>
                         <td>{colaborador.cargo}</td>
                         <td>{colaborador.telefono}</td>
-                        <td><button onClick={() => handleDelete(index)}>Eliminar</button></td>
+                        <td><button
+                        onClick={() => handleDelete(index)}
+                        style={btnStyle}><i className="fa-solid fa-trash-can"></i>
+                        </button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
