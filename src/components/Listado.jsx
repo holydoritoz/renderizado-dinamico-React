@@ -1,0 +1,47 @@
+import PropTypes from 'prop-types'
+import Table from 'react-bootstrap/Table';
+import { BaseColaboradores } from '../data/BaseColaboradores.js'
+
+function Listado() {
+    return (
+        <Table striped bordered hover>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
+                    <th>Cargo</th>
+                    <th>Teléfono</th>
+                </tr>
+            </thead>
+            <tbody>
+                {BaseColaboradores.map((colaborador, index) => (
+                    <tr key={index}>
+                        <td>{colaborador.id}</td>
+                        <td>{colaborador.nombre}</td>
+                        <td>{colaborador.correo}</td>
+                        <td>{colaborador.edad}</td>
+                        <td>{colaborador.cargo}</td>
+                        <td>{colaborador.telefono}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </Table>
+    );
+}
+
+Listado.propTypes = {
+    BaseColaboradores: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            nombre: PropTypes.string.isRequired,
+            correo: PropTypes.string.isRequired,
+            edad: PropTypes.number.isRequired,
+            cargo: PropTypes.string.isRequired,
+            telefono: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+};
+
+export default Listado;
