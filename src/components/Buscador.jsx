@@ -17,8 +17,8 @@ function Buscador({ searchTerm, handleInputChange }) {
 }
 
 Buscador.propTypes = {
-  searchTerm: PropTypes.string,
-  handleInputChange: PropTypes.func,
+searchTerm: PropTypes.string,
+handleInputChange: PropTypes.func,
 }
 
 export default Buscador;

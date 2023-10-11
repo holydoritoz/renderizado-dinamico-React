@@ -17,7 +17,7 @@ function Listado() {
         border: "none",
         padding: "0",
         font: "inherit",
-        color: "red",
+        color: "gray",
         cursor: "pointer",
         outline: "inherit"
     }

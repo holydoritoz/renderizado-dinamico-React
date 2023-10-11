@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
-import { errorAlert, successAlert } from '../components/Alert.jsx'
+import { errorAlert, successAlert } from '../helpers/sweetAlert.js'
 
 
 function Formulario() {
@@ -77,7 +77,7 @@ return (
     variant="primary"
     type="submit"
     value="submit"
-    >
+    ><i className="fa-solid fa-user-plus px-2"></i>
     Agregar colaborador</Button>
     </Form>
     </>
