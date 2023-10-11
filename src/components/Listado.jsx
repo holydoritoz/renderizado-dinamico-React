@@ -1,8 +1,16 @@
+import{ useState } from 'react';
 import PropTypes from 'prop-types'
 import Table from 'react-bootstrap/Table';
 import { BaseColaboradores } from '../data/BaseColaboradores.js'
 
 function Listado() {
+    const [colaboradores, setColaboradores] = useState(BaseColaboradores);
+
+    const handleDelete = (index) => {
+        const updatedColaboradores = [...colaboradores];
+        updatedColaboradores.splice(index, 1);
+        setColaboradores(updatedColaboradores);
+    };
     return (
         <Table striped bordered hover>
             <thead>
@@ -16,7 +24,7 @@ function Listado() {
                 </tr>
             </thead>
             <tbody>
-                {BaseColaboradores.map((colaborador, index) => (
+                {colaboradores.map((colaborador, index) => (
                     <tr key={index}>
                         <td>{colaborador.id}</td>
                         <td>{colaborador.nombre}</td>
@@ -24,6 +32,7 @@ function Listado() {
                         <td>{colaborador.edad}</td>
                         <td>{colaborador.cargo}</td>
                         <td>{colaborador.telefono}</td>
+                        <td><button onClick={() => handleDelete(index)}>Eliminar</button></td>
                     </tr>
                 ))}
             </tbody>

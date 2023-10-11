@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
-import { ErrorAlert, SuccessAlert } from '../components/Alert.jsx'
+import { errorAlert, successAlert } from '../components/Alert.jsx'
 
 
 function Formulario() {
@@ -17,9 +17,9 @@ function Formulario() {
         e.preventDefault();
 
         if(userName.trim() === '' || userMail ==='' || userAge ==="" || userCargo ==="" || userPhone ===""){
-            ErrorAlert();
+            errorAlert();
         } else {
-            SuccessAlert();
+            successAlert();
 }
     };
 

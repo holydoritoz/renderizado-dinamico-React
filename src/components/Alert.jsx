@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 
-export const ErrorAlert = () => {
+export const errorAlert = () => {
     Swal.fire({
         icon: 'error',
         text: 'Por favor completa todos los campos.',
@@ -9,7 +9,7 @@ export const ErrorAlert = () => {
         });
 }
 
-export const SuccessAlert = () => {
+export const successAlert = () => {
     Swal.fire({
         icon: 'success',
         text: 'Formulario enviado exitosamente',
