@@ -37,59 +37,79 @@ function Formulario({ onAgregarColaborador }) {
 return (
 <>
     <Form
-    className="w-100"
-    onSubmit={ handleSubmit }
-    >
-    <h1 className='p-2'>Agregar Colaborador</h1>
-    <InputGroup className="mb-3 d-flex flex-column align-items-center gap-3 p-2">
+        className="w-100"
+        onSubmit={ handleSubmit }
+        >
+        <h1 className='p-2'>Agregar Colaborador</h1>
+        <InputGroup className="p-2">
+        <InputGroup.Text id="basic-addon1">
+        <i className="fa-solid fa-user"></i>
+        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserName(e.target.value)}
         placeholder="Nombre del colaborador"
         aria-label="Username"
         aria-describedby="basic-addon1"
-        className="w-100"
         type="text"
         />
+        </InputGroup>
+
+        <InputGroup className="p-2">
+        <InputGroup.Text id="basic-addon1">
+        <i className="fa-solid fa-envelope"></i>
+        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserMail(e.target.value)}
         placeholder="Email del colaborador"
         aria-label="Email"
         aria-describedby="basic-addon1"
-        className="w-100"
         type="email"
         />
+        </InputGroup>
+
+        <InputGroup className="p-2">
+        <InputGroup.Text id="basic-addon1">
+        <i className="fa-solid fa-circle-question"></i>        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserAge(e.target.value)}
         placeholder="Edad del colaborador"
         aria-label="UserAge"
         aria-describedby="basic-addon1"
-        className="w-100"
         type="text"
         />
+        </InputGroup>
+
+        <InputGroup className="p-2">
+        <InputGroup.Text id="basic-addon1">
+        <i className="fa-solid fa-suitcase"></i>        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserCargo(e.target.value)}
         placeholder="Cargo del colaborador"
         aria-label="UserCargo"
         aria-describedby="basic-addon1"
-        className="w-100"
         type="text"
         />
+        </InputGroup>
+
+        <InputGroup className="p-2">
+        <InputGroup.Text id="basic-addon1">
+        <i className="fa-solid fa-phone"></i>        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserPhone(e.target.value)}
         placeholder="Teléfono del colaborador"
         aria-label="UserPhone"
         aria-describedby="basic-addon1"
-        className="w-100"
         type="text"
         />
-    </InputGroup>
+        </InputGroup>
 
-    <Button
-    variant="primary"
-    type="submit"
-    value="submit"
-    ><i className="fa-solid fa-user-plus px-2"></i>
-    Agregar colaborador</Button>
+        <Button
+        variant="primary"
+        type="submit"
+        value="submit"
+        className='p-2 mt-2'
+        ><i className="fa-solid fa-user-plus px-2"></i>
+        Agregar colaborador</Button>
     </Form>
     </>
     )}

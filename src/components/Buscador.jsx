@@ -21,7 +21,7 @@ function Buscador({ colaboradores, setColaboradores, filterColaboradores }) {
             type="text"
             placeholder="Buscar colaboradores"
             value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)} // Puedes usar setSearchTerm directamente aquí
+            onChange={(event) => setSearchTerm(event.target.value)} // Puedes usar setSearchTerm directamente aquí
         />
         </InputGroup>
     </Form>

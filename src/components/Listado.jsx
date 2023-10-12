@@ -18,7 +18,7 @@ function Listado({ colaboradores, handleDelete }) {
 <Container className='w-100'>
     <Table striped bordered hover>
         <thead>
-        <tr>
+        <tr className='text-center'>
             <th>Nombre</th>
             <th>Correo</th>
             <th>Edad</th>
@@ -35,7 +35,7 @@ function Listado({ colaboradores, handleDelete }) {
             <td>{colaborador.edad}</td>
             <td>{colaborador.cargo}</td>
             <td>{colaborador.telefono}</td>
-            <td>
+            <td className='text-center'>
                 <button
                 onClick={() => handleDelete(index)}
                 style={btnStyle}
