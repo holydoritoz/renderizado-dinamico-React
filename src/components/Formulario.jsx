@@ -19,9 +19,10 @@ function Formulario({ onAgregarColaborador }) {
             errorAlert();
 
         } else {
+            const id = new Date().getTime().toString().slice(-2).padStart(2, '0');
             const nuevoColaborador = {
             // Generamos de forma aleatoria ID's para nuevos colaboradores.
-                id: Math.random(), 
+                id: id, 
                 nombre: userName,
                 correo: userMail,
                 edad: userAge,
@@ -30,13 +31,6 @@ function Formulario({ onAgregarColaborador }) {
             };
             onAgregarColaborador(nuevoColaborador);
             successAlert();
-
-            // Limpiamos los campos despues de agregar el colaborador.
-                setUserName('');
-                setUserMail('');
-                setUserAge('');
-                setUserCargo('');
-                setUserPhone('')
             }
     };
 
