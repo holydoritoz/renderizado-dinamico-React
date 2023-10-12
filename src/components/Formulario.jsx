@@ -1,6 +1,7 @@
 import{ useState } from 'react';
 import PropTypes from 'prop-types'
 import InputGroup from 'react-bootstrap/InputGroup';
+import { v4 as uuidv4 } from 'uuid';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { errorAlert, successAlert } from '../helpers/sweetAlert.js';
@@ -19,10 +20,9 @@ function Formulario({ onAgregarColaborador }) {
             errorAlert();
 
         } else {
-            const id = new Date().getTime().toString().slice(-2).padStart(2, '0');
             const nuevoColaborador = {
             // Generamos de forma aleatoria ID's para nuevos colaboradores.
-                id: id, 
+                id:uuidv4(), 
                 nombre: userName,
                 correo: userMail,
                 edad: userAge,
