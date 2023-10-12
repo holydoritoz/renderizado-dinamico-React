@@ -41,13 +41,13 @@ return (
     onSubmit={ handleSubmit }
     >
     <h1 className='p-2'>Agregar Colaborador</h1>
-    <InputGroup className="mb-3 d-flex flex-column align-items-center gap-3">
+    <InputGroup className="mb-3 d-flex flex-column align-items-center gap-3 p-2">
         <Form.Control
         onChange={(e)=> setUserName(e.target.value)}
         placeholder="Nombre del colaborador"
         aria-label="Username"
         aria-describedby="basic-addon1"
-        className="w-25"
+        className="w-100"
         type="text"
         />
         <Form.Control
@@ -55,7 +55,7 @@ return (
         placeholder="Email del colaborador"
         aria-label="Email"
         aria-describedby="basic-addon1"
-        className="w-25"
+        className="w-100"
         type="email"
         />
         <Form.Control
@@ -63,7 +63,7 @@ return (
         placeholder="Edad del colaborador"
         aria-label="UserAge"
         aria-describedby="basic-addon1"
-        className="w-25"
+        className="w-100"
         type="text"
         />
         <Form.Control
@@ -71,7 +71,7 @@ return (
         placeholder="Cargo del colaborador"
         aria-label="UserCargo"
         aria-describedby="basic-addon1"
-        className="w-25"
+        className="w-100"
         type="text"
         />
         <Form.Control
@@ -79,7 +79,7 @@ return (
         placeholder="Teléfono del colaborador"
         aria-label="UserPhone"
         aria-describedby="basic-addon1"
-        className="w-25"
+        className="w-100"
         type="text"
         />
     </InputGroup>

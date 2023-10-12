@@ -13,7 +13,7 @@ function Buscador({ colaboradores, setColaboradores, filterColaboradores }) {
 
     return (
     <Form onSubmit={handleSubmit}>
-    <InputGroup className="mb-3 mt-3 w-25">
+    <InputGroup className="mb-3 mt-3 w-50 p-2">
     <InputGroup.Text id="basic-addon1">
             <i className="fa-solid fa-magnifying-glass"></i>
         </InputGroup.Text>

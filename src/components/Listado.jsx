@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import Table from 'react-bootstrap/Table';
+import Container from 'react-bootstrap/Container';
+
 
 function Listado({ colaboradores, handleDelete }) {
     const btnStyle = {
@@ -13,6 +15,7 @@ function Listado({ colaboradores, handleDelete }) {
     };
 
     return (
+<Container className='w-100'>
     <Table striped bordered hover>
         <thead>
         <tr>
@@ -44,6 +47,7 @@ function Listado({ colaboradores, handleDelete }) {
         ))}
         </tbody>
     </Table>
+</Container>
     );
 }
 

@@ -20,10 +20,14 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <Formulario onAgregarColaborador={handleAgregarColaborador} />
-      <Buscador />
-      <Listado colaboradores={colaboradores} handleDelete={handleDelete} />
+    <div className="container d-flex justify-content-center">
+      <div className="d-flex flex-column">
+        <Buscador />
+        <Listado colaboradores={colaboradores} handleDelete={handleDelete}/>
+      </div>
+      <div className='p-2'>
+      <Formulario onAgregarColaborador={handleAgregarColaborador}/>
+      </div>
     </div>
   );
 }
