@@ -55,16 +55,7 @@ function Listado() {
 }
 
 Listado.propTypes = {
-    BaseColaboradores: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            nombre: PropTypes.string.isRequired,
-            correo: PropTypes.string.isRequired,
-            edad: PropTypes.number.isRequired,
-            cargo: PropTypes.string.isRequired,
-            telefono: PropTypes.string.isRequired,
-        })
-    ).isRequired,
+    handleDelete: PropTypes.func.isRequired,
 };
 
 export default Listado;

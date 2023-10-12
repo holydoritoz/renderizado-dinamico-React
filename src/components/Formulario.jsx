@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
+import{ useState } from 'react';
+import PropTypes from 'prop-types'
 import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { errorAlert, successAlert } from '../helpers/sweetAlert.js'
+import { errorAlert, successAlert } from '../helpers/sweetAlert.js';
 
-
-function Formulario() {
-
+function Formulario({ onAgregarColaborador }) {
     const [userName, setUserName] = useState('');
     const [userMail, setUserMail] = useState('');
     const [userAge, setUserAge] = useState('');
@@ -19,8 +18,16 @@ function Formulario() {
         if(userName.trim() === '' || userMail ==='' || userAge ==="" || userCargo ==="" || userPhone ===""){
             errorAlert();
         } else {
+            const nuevoColaborador = {
+                nombre: userName,
+                correo: userMail,
+                edad: userAge,
+                cargo: userCargo,
+                telefono: userPhone
+            };
+            onAgregarColaborador(nuevoColaborador);
             successAlert();
-}
+        }
     };
 
 return (
@@ -82,5 +89,9 @@ return (
     </Form>
     </>
     )}
+
+Formulario.propTypes = {
+    onAgregarColaborador: PropTypes.func.isRequired
+};
 
 export default Formulario;

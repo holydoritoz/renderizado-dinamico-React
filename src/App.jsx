@@ -1,19 +1,31 @@
-// import { BaseColaboradores } from './data/BaseColaboradores.jsx';
-import Listado from './components/Listado.jsx'
-import Buscador from './components/Buscador.jsx'
+import{ useState } from 'react';
+import Listado from './components/Listado.jsx';
+import Buscador from './components/Buscador.jsx';
 import Formulario from './components/Formulario.jsx';
+import { BaseColaboradores } from './data/BaseColaboradores';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
+import './App.css';
 
 function App() {
+  const [colaboradores, setColaboradores] = useState([...BaseColaboradores]);
+
+  const handleDelete = (index) => {
+    const updatedColaboradores = [...colaboradores];
+    updatedColaboradores.splice(index, 1);
+    setColaboradores(updatedColaboradores);
+  };
+
+  const handleAgregarColaborador = (nuevoColaborador) => {
+    setColaboradores([...colaboradores, nuevoColaborador]);
+  };
 
   return (
-    <>
-    <Formulario />
-    <Buscador />
-    <Listado />
-    </>
-  )
+    <div className="container">
+      <Formulario onAgregarColaborador={handleAgregarColaborador} />
+      <Buscador />
+      <Listado colaboradores={colaboradores} handleDelete={handleDelete} />
+    </div>
+  );
 }
 
-export default App
+export default App;
