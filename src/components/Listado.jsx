@@ -16,7 +16,6 @@ function Listado({ colaboradores, handleDelete }) {
     <Table striped bordered hover>
         <thead>
         <tr>
-            <th>ID</th>
             <th>Nombre</th>
             <th>Correo</th>
             <th>Edad</th>
@@ -28,7 +27,6 @@ function Listado({ colaboradores, handleDelete }) {
         <tbody>
         {colaboradores.map((colaborador, index) => (
             <tr key={colaborador.id}>
-            <td>{colaborador.id}</td>
             <td>{colaborador.nombre}</td>
             <td>{colaborador.correo}</td>
             <td>{colaborador.edad}</td>
