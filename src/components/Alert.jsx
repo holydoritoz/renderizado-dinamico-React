@@ -4,7 +4,10 @@ import Badge from 'react-bootstrap/Badge';
 function Alert({ color, message }) {
 return (
     <>
-    <Badge bg={ color }>{ message }</Badge>
+    <Badge
+    bg={ color }
+    className="p-4 mt-2"
+    >{ message }</Badge>
     </>
 )
 }
