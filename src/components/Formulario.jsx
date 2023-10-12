@@ -1,12 +1,12 @@
 import{ useState } from 'react';
 import PropTypes from 'prop-types'
 import InputGroup from 'react-bootstrap/InputGroup';
-import { v4 as uuidv4 } from 'uuid';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { errorAlert, successAlert } from '../helpers/sweetAlert.js';
+import { v4 as uuidv4 } from 'uuid';
 
-function Formulario({ onAgregarColaborador }) {
+function Formulario({ onAgregarColaborador, handleError }) {
     const [userName, setUserName] = useState('');
     const [userMail, setUserMail] = useState('');
     const [userAge, setUserAge] = useState('');
@@ -17,7 +17,8 @@ function Formulario({ onAgregarColaborador }) {
         e.preventDefault();
 
         if(userName.trim() === '' || userMail ==='' || userAge ==="" || userCargo ==="" || userPhone ===""){
-            errorAlert();
+            handleError(true);
+            errorAlert(); 
 
         } else {
             const nuevoColaborador = {
@@ -30,6 +31,7 @@ function Formulario({ onAgregarColaborador }) {
                 telefono: userPhone
             };
             onAgregarColaborador(nuevoColaborador);
+            handleError(false);
             successAlert();
             }
     };
@@ -69,7 +71,8 @@ return (
 
         <InputGroup className="p-2">
         <InputGroup.Text id="basic-addon1">
-        <i className="fa-solid fa-circle-question"></i>        </InputGroup.Text>
+        <i className="fa-solid fa-circle-question"></i>        
+        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserAge(e.target.value)}
         placeholder="Edad del colaborador"
@@ -81,7 +84,8 @@ return (
 
         <InputGroup className="p-2">
         <InputGroup.Text id="basic-addon1">
-        <i className="fa-solid fa-suitcase"></i>        </InputGroup.Text>
+        <i className="fa-solid fa-suitcase"></i>        
+        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserCargo(e.target.value)}
         placeholder="Cargo del colaborador"
@@ -93,7 +97,8 @@ return (
 
         <InputGroup className="p-2">
         <InputGroup.Text id="basic-addon1">
-        <i className="fa-solid fa-phone"></i>        </InputGroup.Text>
+        <i className="fa-solid fa-phone"></i>        
+        </InputGroup.Text>
         <Form.Control
         onChange={(e)=> setUserPhone(e.target.value)}
         placeholder="Teléfono del colaborador"
@@ -115,7 +120,8 @@ return (
     )}
 
 Formulario.propTypes = {
-    onAgregarColaborador: PropTypes.func.isRequired
+    onAgregarColaborador: PropTypes.func.isRequired,
+    handleError: PropTypes.func.isRequired
 };
 
 export default Formulario;

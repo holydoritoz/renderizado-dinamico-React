@@ -2,11 +2,18 @@ import{ useState } from 'react';
 import Listado from './components/Listado.jsx';
 import Buscador from './components/Buscador.jsx';
 import Formulario from './components/Formulario.jsx';
+import Alert from './components/Alert.jsx';
 import { BaseColaboradores } from './data/BaseColaboradores';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [colaboradores, setColaboradores] = useState([...BaseColaboradores]);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleError = (errorForm) => {
+    setError(errorForm)
+  }
 
   const handleDelete = (index) => {
     const updatedColaboradores = [...colaboradores];
@@ -16,6 +23,8 @@ function App() {
 
   const handleAgregarColaborador = (nuevoColaborador) => {
     setColaboradores([...colaboradores, nuevoColaborador]);
+    setSuccess(true)
+
   };
 
   return (
@@ -29,7 +38,22 @@ function App() {
         </div>
         <div className="col-md-4">
           <div className="p-2 text-center">
-            <Formulario onAgregarColaborador={handleAgregarColaborador} />
+            <Formulario onAgregarColaborador={handleAgregarColaborador} handleError={handleError} />
+                {
+                  error &&        
+                  <Alert
+                    color = 'danger'
+                    message= 'Debes completar todos los campos'
+                  />
+                }
+
+                {
+                  success &&        
+                  <Alert
+                    color = 'success'
+                    message= 'Datos enviados correctamente!'
+                  />
+                }
           </div>
         </div>
       </div>

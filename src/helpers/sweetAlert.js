@@ -1,18 +1,20 @@
 import Swal from 'sweetalert2'
 
-export const errorAlert = () => {
+export const errorAlert  = () => {
     Swal.fire({
+        title: 'Error',
+        text: 'Completa todos los campos',
         icon: 'error',
-        text: 'Por favor completa todos los campos.',
-        showConfirmButton: false,
-        timer: 1500
+        showCancelButton: false,
         });
 }
 
-export const successAlert = () => {
+export const successAlert  = async ( message = 'Enviado!') => {
     Swal.fire({
+        position: 'top',
         icon: 'success',
-        text: 'Formulario enviado exitosamente',
+        title: message,
+        text: 'Datos enviados exitosamente',
         showConfirmButton: false,
         timer: 1500
     })
