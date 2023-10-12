@@ -17,8 +17,11 @@ function Formulario({ onAgregarColaborador }) {
 
         if(userName.trim() === '' || userMail ==='' || userAge ==="" || userCargo ==="" || userPhone ===""){
             errorAlert();
+
         } else {
             const nuevoColaborador = {
+            // Generamos de forma aleatoria ID's para nuevos colaboradores.
+                id: Math.random(), 
                 nombre: userName,
                 correo: userMail,
                 edad: userAge,
@@ -27,7 +30,14 @@ function Formulario({ onAgregarColaborador }) {
             };
             onAgregarColaborador(nuevoColaborador);
             successAlert();
-        }
+
+            // Limpiamos los campos despues de agregar el colaborador.
+                setUserName('');
+                setUserMail('');
+                setUserAge('');
+                setUserCargo('');
+                setUserPhone('')
+            }
     };
 
 return (
